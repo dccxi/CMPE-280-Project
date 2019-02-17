@@ -13,6 +13,7 @@ CMPE280 Final Project
 * npm
 * node
 * express
+* mongodb
 
 ## then run these:
 * `npm install`
