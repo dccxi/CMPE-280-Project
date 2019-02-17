@@ -1,10 +1,11 @@
-CMPE280 Final Project
+# CMPE280 Final Project
+
+### DONT PUSH TO MASTER BRANCH! Always create a branch for developing features
 
 ## first:
-* fork to your own repo
-* clone your forked repo, not the upstream one!
-* set to track the origin and upstream
+* clone the repo
 * cd into your repo on local
+
 
 ## then run these:
 * `cd ./app`
@@ -19,13 +20,16 @@ CMPE280 Final Project
 * `npm install`
 
 
-
-
 --- common questions ---
-## how to push your code:
-* `git pull --rebase upstream master`
-* `git branch <your_branch_name>` and `git checkout <your_branch_name>`
-* `git add .` and `git commit` and `git push origin <your_branch_name>`
+## how to write code:
+* `git pull`
+* `git branch <your_branch_name>`
+* `git checkout <your_branch_name>`
+* write some code...
+* `git add .` and `git commit`
+* `git push origin <your_branch_name>`
+* go to github, create the pull request
+* other team members will review your changes and merge it if approved
 
 ## how to start the server for production:
 * `npm run start`
