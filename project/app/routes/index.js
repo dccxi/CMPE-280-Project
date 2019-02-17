@@ -5,11 +5,12 @@ var prediction_controller = require('../controllers/predictionController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'College Admission Lottery!' });
+  res.render('index', { title: 'College Admission Predictor' });
 });
 
 router.get('/about', function (req, res) {
-  res.send('About this CMPE 280 project...');
+  var desc = "Hi, this is the about page. This is a web app for CMPE 280 class.";
+  res.render('about', { title: 'About', desc: desc});
 });
 
 ///////////////////////////////

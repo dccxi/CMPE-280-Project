@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      button(onclick="redirect()") Go to the main page
+    .row
+      h1= title
+      p #{desc}
+
+    script.
+      function redirect() {
+        window.location.href = '/'
+      }
