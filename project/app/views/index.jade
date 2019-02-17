@@ -3,7 +3,14 @@ extends layout
 block content
   .main.container
     .row
+      button(onclick="redirect()") Go to Predict!
+    .row
       h1= title
       p Welcome to #{title}
       .image-block
         img.className#IdName(src="/images/1.gif" alt="Index page image here")
+
+    script.
+      function redirect() {
+        window.location.href = '/predict'
+      }
