@@ -13,18 +13,26 @@ block content
           form(method='POST' action='/predict')
             div.form-group
               label(for='name') Name:
-              input#name.form-control(type='text', placeholder='first and last' name='name')
+              br
+              input#name.form-control(type='text', placeholder='first and last', name='name', required)
             div.form-group
               label(for='email') Email:
-              input#email.form-control(type='email', placeholder='name@email.com' name='email')
+              br
+              input#email.form-control(type='email', placeholder='name@email.com', name='email')
             div.form-group
-              label(for='sat') SAT Score:
-              input#name.form-control(type='text', placeholder='2400' name='sat')
+              label(for='gre') GRE Score (260-340):
+              br
+              input#gre.form-control(type='number', name='gre', min='260', max='340', required)
             div.form-group
-              label(for='gre') GRE Score:
-              input#name.form-control(type='text', placeholder='300' name='gre')
+              label(for='toefl') TOEFL Score (0-120):
+              br
+              input#toefl.form-control(type='number', name='toefl', min='0', max='120' required)
             div.form-group
-              label(for='favoriteBook') Comments:
-              input#favoriteBook.form-control(type='text', placeholder='comments' name='favoriteBook')
+              label(for='comments') Comments:
+              br
+              input#comments.form-control(type='text', placeholder='comments', name='comments')
             button.btn.btn-primary(type='submit') Predict
+          if title == 'Prediction Result'
+            div.prediction
+              p Hi, #{name}. According to your GRE & TOEFL scores #{gre} and #{toefl}. We predict that your chance to be admitted to UCLA to be #{result}%.
     script.
