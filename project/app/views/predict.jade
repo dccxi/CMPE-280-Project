@@ -3,7 +3,7 @@ extends layout
 block content
   .main.container
     .row
-      button(onclick="redirect()") Go to the main page!
+      button(onclick="redirect('/')") Go to the main page!
     .row
       h1= title
       p This is the prediction page
@@ -28,6 +28,3 @@ block content
               input#favoriteBook.form-control(type='text', placeholder='comments' name='favoriteBook')
             button.btn.btn-primary(type='submit') Predict
     script.
-      function redirect() {
-        window.location.href = '/'
-      }

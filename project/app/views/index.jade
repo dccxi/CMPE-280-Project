@@ -3,8 +3,8 @@ extends layout
 block content
   .main.container
     .row
-      button(onclick="predict()") Go to Predict
-      button(onclick="about()") Go to About
+      button(onclick="redirect('/predict')") Go to Predict
+      button(onclick="redirect('/about')") Go to About
     .row
       h1= title
       p Welcome to #{title}
@@ -12,9 +12,3 @@ block content
         img.className#IdName(src="/images/1.gif" alt="Index page image here")
 
     script.
-      function predict() {
-        window.location.href = '/predict'
-      }
-      function about() {
-        window.location.href = '/about'
-      }
