@@ -20,6 +20,6 @@ function isValidById() {
 }
 
 // clear the result
-function clearResult(e) {
+function clearResult() {
   document.getElementById('prediction-result').innerHTML = '';
 }
