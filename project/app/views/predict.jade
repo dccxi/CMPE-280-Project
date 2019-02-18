@@ -10,7 +10,7 @@ block content
       .row
         .col-md-6.col-md-offset-3
           // predict the admission chance
-          form
+          form#predict-form
             div.form-group
               label(for='name') Name:
               br
@@ -18,7 +18,7 @@ block content
             div.form-group
               label(for='email') Email:
               br
-              input#email.form-control(type='email', placeholder='name@email.com', name='email')
+              input#email.form-control(type='email', placeholder='name@email.com', name='email', onfocus='clearResult()')
             div.form-group
               label(for='gre') GRE Score (260-340):
               br
@@ -30,23 +30,37 @@ block content
             div.form-group
               label(for='comments') Comments:
               br
-              input#comments.form-control(type='text', placeholder='comments', name='comments')
+              input#comments.form-control(type='text', placeholder='comments', name='comments', onfocus='clearResult()')
             button#predict-submit.btn.btn-primary(type='button') Predict
             div.result
               p#prediction-result
-              //- p Hi, #{name}. According to your GRE & TOEFL scores #{gre} and #{toefl}. We predict that your chance to be admitted to UCLA to be #{result}%.
     script.
       //- modify DOM to show the result when send prediction
       document.getElementById('predict-submit').addEventListener('click', function (e) {
         e.preventDefault()
         if (isValidById('name', 'gre', 'toefl')) {
           //- construct the form from scratch
-          var formData = new FormData();
-          formData.append('name', e.target.form.name.value);
-          formData.append('gre', e.target.form.gre.value);
-          formData.append('toefl', e.target.form.toefl.value);
-          //- pull results and display
+          var form = document.getElementById('predict-form');
+          var formData = new FormData(form);
+          var body = new URLSearchParams(formData)
+          //- pull results
+          fetch('/predict', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            body
+          }).then(res => res.json())
+          .catch(function(err) {
+            console.error(err)
+          }).then(function(result) {
+            //- display result
+            var name = document.getElementById('name').value;
+            var gre = document.getElementById('gre').value;
+            var toefl = document.getElementById('toefl').value;
+            var resultText = `Hi, ${name}. According to your GRE & TOEFL scores ${gre} and ${toefl}. We predict your chance to be admitted to UCLA to be ${result}%.`
+            document.getElementById('prediction-result').innerHTML = resultText;
+          })
         } else {
+          //- not all inputs are valid
           alert('Please fill all required fields')
         }
       })
