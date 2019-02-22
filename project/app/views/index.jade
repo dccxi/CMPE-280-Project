@@ -2,9 +2,11 @@ extends layout
 
 block content
   .main.container
+    .titleImage
+      img.className#IdName(src="/images/college.jpg" alt="Title image")
     .row
-      button(onclick="redirect('/predict')") Go to Predict
-      button(onclick="redirect('/about')") Go to About
+      button(class="navButton" onclick="redirect('/predict')") Go to Predict
+      button(class="navButton" onclick="redirect('/about')") Go to About
     .row
       h1= title
       p Welcome to #{title}

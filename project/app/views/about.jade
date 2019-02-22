@@ -2,8 +2,10 @@ extends layout
 
 block content
   .main.container
+    .titleImage
+      img.className#IdName(src="/images/college.jpg" alt="Title image")
     .row
-      button(onclick="redirect('/')") Go to the main page
+      button(onclick="redirect('/')" class="navButton") Go to the main page
     .row
       h1= title
       p #{desc}
