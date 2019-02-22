@@ -11,10 +11,6 @@ a {
 
 input:invalid {
   border: 1px dashed red;
-  width: 25%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
 }
 
 input {
@@ -24,7 +20,7 @@ input {
   box-sizing: border-box;
 }
 
-.NavButton{
+.navButton{
   background-color: white;
   color: black;
   padding: 15px 32px;
@@ -38,11 +34,12 @@ input {
   transition: 0.3s;
   opacity: 0.6;
 }
-.NavButton:hover {opacity: 1;}
+.navButton:hover {opacity: 1;}
 
-.TitleImage {
+div.titleImage {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 60%;
 }
+

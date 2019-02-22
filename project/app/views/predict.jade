@@ -2,8 +2,10 @@ extends layout
 
 block content
   .main.container
+    .titleImage
+      img.className#IdName(src="/images/college.jpg" alt="Title image")
     .row
-      button(onclick="redirect('/')" class="NavButton") Go to the main page!
+      button(onclick="redirect('/')" class="navButton") Go to the main page!
     .row
       h1= title
       p This is the prediction page
@@ -31,7 +33,7 @@ block content
               label(for='comments') Comments:
               br
               input#comments.form-control(type='text', placeholder='comments', name='comments', onfocus='clearResult()')
-            button#predict-submit.btn.btn-primary(type='button', class= "NavButton") Predict
+            button#predict-submit.btn.btn-primary(type='button', class= "navButton") Predict
             div.result
               p#prediction-result
     script.
