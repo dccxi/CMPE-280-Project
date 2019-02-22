@@ -3,7 +3,7 @@ var Prediction = require('../models/prediction');
 var getPredictScore = function (gre, toefl, res) {
     // return random value as prediction for now (prototyping)
     res.json({
-        status: "OK",
+        status: 1,
         result: (Math.random() * 100).toString().slice(0, 4)
     });
 }
@@ -15,7 +15,7 @@ exports.prediction_post = function (req, res) {
         getPredictScore(gre, toefl, res)
     } else {
         res.json({
-            status: "BAD",
+            status: 0,
             result: 'Invalid operation'
         })
     }
