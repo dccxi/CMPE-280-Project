@@ -21,6 +21,8 @@ router.get('/predict', function(req, res, next) {
 // TODO: Change to a POST request
 router.post('/predict', prediction_controller.prediction_post);
 
+router.get('/viewdata',)
+
 
 
 module.exports = router;
