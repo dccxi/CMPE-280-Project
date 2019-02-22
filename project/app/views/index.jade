@@ -3,13 +3,13 @@ extends layout
 block content
   .main.container
     .image-block
-      img.className#IdName(src="/images/college.jpg" alt="Title image" class="title-img")
+      img.className#IdName(src="/images/college.jpg" alt="Title image" class="TitleImage")
     .row
-      button(class="main-button1" onclick="redirect('/predict')") Go to Predict
-      button(class="main-button2" onclick="redirect('/about')") Go to About
+      button(class="NavButton" onclick="redirect('/predict')") Go to Predict
+      button(class="NavButton" onclick="redirect('/about')") Go to About
     .row
       h1= title
-      p(class="main-p") Welcome to #{title}
+      p Welcome to #{title}
       .image-block
         img.className#IdName(src="/images/1.gif" alt="Index page image here" class="index-img")
 

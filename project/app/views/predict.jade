@@ -3,7 +3,7 @@ extends layout
 block content
   .main.container
     .row
-      button(onclick="redirect('/')" class="main-button1") Go to the main page!
+      button(onclick="redirect('/')" class="NavButton") Go to the main page!
     .row
       h1= title
       p This is the prediction page
@@ -14,24 +14,24 @@ block content
             div.form-group
               label(for='name') Name:
               br
-              input#name.form-control(type='text', placeholder='first and last', name='name', onfocus='clearResult()', required, class="predict-form")
+              input#name.form-control(type='text', placeholder='first and last', name='name', onfocus='clearResult()', required)
             div.form-group
               label(for='email') Email:
               br
-              input#email.form-control(type='email', placeholder='name@email.com', name='email', onfocus='clearResult()', class="predict-form")
+              input#email.form-control(type='email', placeholder='name@email.com', name='email', onfocus='clearResult()')
             div.form-group
               label(for='gre') GRE Score (260-340):
               br
-              input#gre.form-control(type='number', name='gre', min='260', max='340', onfocus='clearResult()', required, class="predict-form")
+              input#gre.form-control(type='number', name='gre', min='260', max='340', onfocus='clearResult()', required)
             div.form-group
               label(for='toefl') TOEFL Score (0-120):
               br
-              input#toefl.form-control(type='number', name='toefl', min='0', max='120', onfocus='clearResult()', required, class="predict-form")
+              input#toefl.form-control(type='number', name='toefl', min='0', max='120', onfocus='clearResult()', required)
             div.form-group
               label(for='comments') Comments:
               br
-              input#comments.form-control(type='text', placeholder='comments', name='comments', onfocus='clearResult()', class="predict-form")
-            button#predict-submit.btn.btn-primary(type='button', class= "main-button1") Predict
+              input#comments.form-control(type='text', placeholder='comments', name='comments', onfocus='clearResult()')
+            button#predict-submit.btn.btn-primary(type='button', class= "NavButton") Predict
             div.result
               p#prediction-result
     script.
