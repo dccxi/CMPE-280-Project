@@ -22,9 +22,25 @@ document.getElementById('predict-submit').addEventListener('click', function (e)
         var toefl = document.getElementById('toefl').value;
         var resultText = status ? `Hi, ${name}. According to your GRE & TOEFL scores ${gre} and ${toefl}. We predict your chance to be admitted to UCLA to be ${result}%.` : result;
         document.getElementById('prediction-result').innerHTML = resultText;
+        stopAnimation();
       })
   } else {
     //- not all inputs are valid
     alert('Please fill all required fields, and make sure the numbers are in range.')
   }
 })
+
+var Animation = {}
+
+function startAnimation() {
+  if (!Animation.running && isValidById('name', 'gre', 'toefl')) {
+    init()
+    Animation.running = setInterval(draw, 200)
+  }
+}
+
+function stopAnimation() {
+  clearInterval(Animation.running)
+  delete Animation.running
+  clearCanvas()
+}
