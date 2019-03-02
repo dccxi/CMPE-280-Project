@@ -1,0 +1,116 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title
+      | Login Form
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script.
+    link(rel='stylesheet', href='/stylesheets/login_form_style.css')
+    script.
+      var cnvs_height = 0;
+      var cnvs_width = 0;
+      var index = 0;
+      window.onload = function(){
+      canvasResizing();
+      canvasLoadImage();
+      }
+      var img_list = ['berkley-logo.png', 'sjsu-logo.png', 'stanford-logo.png', 'UCI-logo.png', 'ucla-logo.png', 'ucsd-logo.png', 'USC-logo.png'];
+      var fitImageOn = function(canvas, imageObj, context) {
+      var imageAspectRatio = imageObj.width / imageObj.height;
+      var canvasAspectRatio = canvas.width / canvas.height;
+      var renderableHeight, renderableWidth, xStart, yStart;
+      // If image's aspect ratio is less than canvas's we fit on height
+      // and place the image centrally along width
+      if(imageAspectRatio < canvasAspectRatio) {
+      renderableHeight = canvas.height;
+      renderableWidth = imageObj.width * (renderableHeight / imageObj.height);
+      xStart = (canvas.width - renderableWidth) / 2;
+      yStart = 0;
+      }
+      // If image's aspect ratio is greater than canvas's we fit on width
+      // and place the image centrally along height
+      else if(imageAspectRatio > canvasAspectRatio) {
+      renderableWidth = canvas.width
+      renderableHeight = imageObj.height * (renderableWidth / imageObj.width);
+      xStart = 0;
+      yStart = (canvas.height - renderableHeight) / 2;
+      }
+      // Happy path - keep aspect ratio
+      else {
+      renderableHeight = canvas.height;
+      renderableWidth = canvas.width;
+      xStart = 0;
+      yStart = 0;
+      }
+      context.drawImage(imageObj, xStart, yStart, renderableWidth, renderableHeight);
+      };
+      function canvasLoadImage()
+      {
+      ctx = canvas.getContext("2d");
+      ctx.clearRect(0,0,canvas.width, canvas.height);
+      console.log(canvas);
+      var bg_img = new Image();
+      bg_img.src = "/images/"+img_list[index];
+      bg_img.onload = function(){
+      //ctx.drawImage(bg_img,0,0,300,224);
+      fitImageOn(canvas, bg_img, ctx);
+      }
+      if(index < img_list.length)
+      {
+      index = index + 1;
+      }
+      else
+      index = 0;
+      }
+      function canvasResizing()
+      {   
+      var left_div = document.getElementById('left_canvas');
+      console.log(left_div);
+      console.log(document.getElementsByTagName('canvas'));
+      document.getElementsByTagName('canvas').width= left_div.offsetWidth;
+      document.getElementsByTagName('canvas').height = left_div.offsetHeight;
+      cnvs_height = left_div.offsetHeight;
+      cnvs_width = left_div.offsetWidth;
+      }
+      var myVar = function animating_image_transition()
+      {
+      setInterval(canvasLoadImage, 5000);
+      }
+      //myVar();
+      //animating_image_transition();
+  body
+    .main
+      .navbar
+        | Navbar 
+        br  
+        button(onclick="window.history.back()") Go Back
+        
+      br
+      br
+      .body
+        #left_canvas.left-canvas
+          canvas#canvas(style='border:1px solid; height: 100%; width: 100%;')
+        .login-form
+          #login_container
+            label(for='usr_name')
+              b Username: 
+            input(type='text', placeholder='Email ID', name='usr_name', required='')
+            br
+            br
+            label(for='pwd')
+              b Password: 
+            input(type='password', placeholder='Password', name='pwd', required='')
+            br
+            br
+            button.button(type='button', style='margin-left : 0%;') Login
+            br
+            input(type='checkbox', name='remb_me')
+            label(for='remb_me') Remember Me 
+        #controls
+          button(onclick='myVar = setInterval(canvasLoadImage, 3000)') Play
+          button(onclick='clearTimeout(myVar)') Pause
+      br
+      br
+      .footer

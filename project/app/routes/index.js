@@ -21,6 +21,9 @@ router.get('/predict', function(req, res, next) {
 // TODO: Change to a POST request
 router.post('/predict', prediction_controller.prediction_post);
 
+router.get('/login_form', function (req, res) {
+  res.render('login_form', {title: 'Login Form'})
+});
 
 
 module.exports = router;
