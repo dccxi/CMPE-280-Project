@@ -5,14 +5,30 @@ block content
     .titleImage
       img.className#IdName(src="/images/college.jpg" alt="Title image")
     .row
-      button(class="navButton" onclick="redirect('/predict')") Go to Predict
-      button(class="navButton" onclick="redirect('/about')") Go to About
-      button(onclick="redirect('/login_form')" class="navButton") Go to Login form
-
+      button(class="ui-button ui-widget ui-corner-all" onclick="redirect('/predict')") Go to Predict
+      button(class="ui-button ui-widget ui-corner-all" onclick="redirect('/about')") Go to About
+      button(class="ui-button ui-widget ui-corner-all" onclick="redirect('/login_form')" ) Go to Login form
     .row
       h1= title
       p Welcome to #{title}
-      .image-block
-        img.className#IdName(src="/images/1.gif" alt="Index page image here")
+    .row
+      h2#ui-state-default
+        Prediction Attributes Infomration
+      div#tabs
+        ul
+          li
+            a(href="gre") GRE
+          li
+            a(href="toefl") TOEFL
+          li
+            a(href="sat") SAT
+        div#content
+    .row
+      .col-md-6
+        .div#drag
+          img.ui-widget-content#resize(src="/images/table1.png" alt="table 1")
+        .div#drop
+          img.ui-widget-content#resize(src="/images/table2.gif" alt="table 2")
 
-    script.
+    script(src='/javascripts/indexWidget.js')
+    link(rel='stylesheet',href='/stylesheets/widget.css')
