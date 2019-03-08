@@ -25,5 +25,16 @@ router.get('/login_form', function (req, res) {
   res.render('login_form', {title: 'Login Form'})
 });
 
+router.get('/gre',function(req,res){
+    res.render('gre', {title: 'Ajax tab 1'});
+})
+
+router.get('/toefl',function(req,res){
+    res.render('toefl', {title: 'Ajax tab 2'});
+})
+
+router.get('/sat',function(req,res){
+    res.render('sat', {title: 'Ajax tab 3'});
+})
 
 module.exports = router;
