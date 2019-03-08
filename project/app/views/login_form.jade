@@ -16,7 +16,7 @@ html
       canvasResizing();
       canvasLoadImage();
       }
-      var img_list = ['berkley-logo.png', 'sjsu-logo.png', 'stanford-logo.png', 'UCI-logo.png', 'ucla-logo.png', 'ucsd-logo.png', 'USC-logo.png'];
+      var img_list = ['berkley-logo.png', 'stanford-logo.png', 'UCI-logo.png', 'ucla-logo.png', 'ucsd-logo.png', 'USC-logo.png'];
       var fitImageOn = function(canvas, imageObj, context) {
       var imageAspectRatio = imageObj.width / imageObj.height;
       var canvasAspectRatio = canvas.width / canvas.height;
@@ -65,7 +65,7 @@ html
       index = 0;
       }
       function canvasResizing()
-      {   
+      {
       var left_div = document.getElementById('left_canvas');
       console.log(left_div);
       console.log(document.getElementsByTagName('canvas'));
@@ -83,10 +83,10 @@ html
   body
     .main
       .navbar
-        | Navbar 
-        br  
+        | Navbar
+        br
         button(onclick="window.history.back()") Go Back
-        
+
       br
       br
       .body
@@ -95,19 +95,19 @@ html
         .login-form
           #login_container
             label(for='usr_name')
-              b Username: 
+              b Username:
             input(type='text', placeholder='Email ID', name='usr_name', required='')
             br
             br
             label(for='pwd')
-              b Password: 
+              b Password:
             input(type='password', placeholder='Password', name='pwd', required='')
             br
             br
             button.button(type='button', style='margin-left : 0%;') Login
             br
             input(type='checkbox', name='remb_me')
-            label(for='remb_me') Remember Me 
+            label(for='remb_me') Remember Me
         #controls
           button(onclick='myVar = setInterval(canvasLoadImage, 3000)') Play
           button(onclick='clearTimeout(myVar)') Pause
