@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var prediction_controller = require('../controllers/predictionController');
+var admission_controller = require('../controllers/admissionController');
 
 router.get('/login_form', function (req, res) {
   res.render('login_form', {title: 'Login Form'})
@@ -31,8 +32,8 @@ router.get('/view/all',function(req,res){
 })
 
 //
-router.post('/admission/create', prediction_controller.admission_create_post);
-router.post('/admission/update', prediction_controller.admission_update_post);
-router.post('/admission/delete', prediction_controller.admission_delete_post);
+router.post('/admission/create', admission_controller.admission_create_post);
+router.post('/admission/update', admission_controller.admission_update_post);
+router.post('/admission/delete', admission_controller.admission_delete_post);
 
 module.exports = router;
