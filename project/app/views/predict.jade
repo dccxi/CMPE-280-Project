@@ -11,30 +11,26 @@ block content
             div.form-group
               label(for='name') Name:
               br
-              input#name.form-control(type='text', placeholder='First and Last Name', name='name', onfocus='clearResult()', required, title="Your first name followed by last name")
+              input#predict-name.form-control(type='text', placeholder='First and Last Name', name='name', onfocus='clearResult()', required, title="Your first name followed by last name")
             div.form-group
               label(for='email') Email:
               br
-              input#email.form-control(type='email', placeholder='name@email.com', name='email', onfocus='clearResult()', title="Your email address")
+              input#predict-email.form-control(type='email', placeholder='name@email.com', name='email', onfocus='clearResult()', title="Your email address")
             div.form-group
               label(for='gre') GRE Score (260-340):
               br
-              input#gre.form-control(type='number', name='gre', min='260', max='340', onfocus='clearResult()', required, title="Your latest GRE score")
+              input#predict-gre.form-control(type='number', name='gre', min='260', max='340', onfocus='clearResult()', required, title="Your latest GRE score")
             div.form-group
               label(for='toefl') TOEFL Score (0-120):
               br
-              input#toefl.form-control(type='number', name='toefl', min='0', max='120', onfocus='clearResult()', required, title="Your latest TOEFL score")
+              input#predict-toefl.form-control(type='number', name='toefl', min='0', max='120', onfocus='clearResult()', required, title="Your latest TOEFL score")
             div.form-group
               label(for='comments') Comments:
               br
-              input#comments.form-control(type='text', placeholder='comments', name='comments', onfocus='clearResult()', title="Additional information for this prediction")
-            div.form-group
-              label(for='date') Date:
-              br
-              input#date.form-control(type="text",title="Today's date")
+              input#predict-comments.form-control(type='text', placeholder='comments', name='comments', onfocus='clearResult()', title="Additional information for this prediction")
             button#predict-submit.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all" onmouseenter='startAnimation()') Predict
             br
-            canvas#canvas(height='10' width='120') Canvas not supported.
+            canvas#predict-canvas(height='10' width='120') Canvas not supported.
             div.result
               p#prediction-result
     script(src='/javascripts/canvas.js')

@@ -4,7 +4,7 @@ var ctx;
 var lineStatus = 1;
 
 function init() {
-  ctx = document.getElementById('canvas').getContext('2d')
+  ctx = document.getElementById('predict-canvas').getContext('2d')
 }
 
 function draw() {
