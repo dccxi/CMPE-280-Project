@@ -28,7 +28,7 @@ router.get('/search',function(req,res){
 })
 
 router.get('/view/all',function(req,res){
-    res.render('view_all', {title: 'Ajax tab 2', admissions: prediction_controller.admission_list_all_get()});
+    res.render('view_all', {title: 'Ajax tab 2', admissions: admission_controller.admission_list_all_get()});
 })
 
 //
