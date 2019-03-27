@@ -19,6 +19,14 @@
 ## then run these:
 * `npm install`
 
+## in order to connect to the remote db, mongodb's adderss must be set in the environment variables:
+```
+export DB_URI="mongodb://<username>:<password>@<address>:<port>/<dbname>"
+```
+or on Windows (Powershell):
+```
+$env:DB_URI="mongodb://<username>:<password>@<address>:<port>/<dbname>"
+```
 
 --- common questions ---
 ## how to write code:
