@@ -1,13 +1,12 @@
 var Admission = require('../models/admission');
 
-exports.admission_list_all = function (req, res, next) {
-
+exports.admission_list_all_get = function () {
     Admission.find()
-        .sort([['created_at', 'ascending']])
+        .limit(50)
         .exec(function (err, admissions) {
             if (err) { return next(err); }
             // Success, return a list of admission objects
-            res.json({ payload: admissions });
+            return admissions;
         })
 
 };
@@ -64,7 +63,7 @@ exports.admission_create_post = function (req, res, next) => {
         }
     );
     // Save new admission.
-    author.save(function (err) {
+    obj.save(function (err) {
         if (err) { return next(err); }
         // Success
         // You can access the ObjectId by using obj.id
