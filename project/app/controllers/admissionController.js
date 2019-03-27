@@ -13,8 +13,8 @@ exports.admission_list_all_get = function () {
 
 exports.admission_search_post = function (req, res, next) {
   // Default values
-  var gre_lower_bound = 160;
-  var gre_upper_bound = 330;
+  var gre_lower_bound = 260;
+  var gre_upper_bound = 340;
   var toefl_lower_bound = 0;
   var toefl_upper_bound = 120;
 
@@ -42,7 +42,7 @@ exports.admission_search_post = function (req, res, next) {
     }
   });
 
-  query.select('gre_score toefl_score, gpa, research, chance_of_admit');
+  query.select('gre_score, toefl_score, gpa, research, chance_of_admit');
   query.limit(50);
 
   // execute the query at a later time
@@ -52,7 +52,7 @@ exports.admission_search_post = function (req, res, next) {
   })
 }
 
-exports.admission_create_post = function (req, res, next) => {
+exports.admission_create_post = function (req, res, next) {
     var obj = new Admission(
         {
             toefl: req.body.toefl_score,
@@ -78,7 +78,7 @@ exports.admission_update_post = function (req, res, next) {
             gre_score: req.body.gre_score,
             gpa: req.body.gpa,
             research: req.body.research,
-            chance_of_admit: req.body.chance_of_admit
+            chance_of_admit: req.body.chance_of_admit,
             _id: req.body.id
         }
     );
