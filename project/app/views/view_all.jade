@@ -1,0 +1,38 @@
+extends layout
+block content
+  .main.container
+    .row
+      h2 View All Admission Results
+      p TODO: Implement this page so that it displays all admission results.
+      p each row should have one update, and one delete button.
+      p on the top of the page should have a row to create a new admission entry
+    .row
+      h4 Create a new admission:
+
+      form#predict-form
+        div.form-group
+          span your name:
+          input#name.form-control(type='text', name='name')
+        div.form-group
+          span toefl score:
+          input#toefl.form-control(type='text', name='toefl_score')
+        div.form-group
+          span gre score:
+          input#gre.form-control(type='text', name='gre_score')
+        button#create_one.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") create
+    .row
+      h4 All Admissions:
+    .row
+      span toefl score:
+      input#toefl_ID_OF_THIS_ADMISSION_OBJ(type='text', name='toefl_score', value="120")
+      span gre score:
+      input#gre_ID_OF_THIS_ADMISSION_OBJ(type='text', name='gre_score', value="301")
+      button#delete_obj_id.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") delete
+      button#update_obj_id.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") update
+    .row
+      span toefl score:
+      input#toefl_ID_OF_THIS_ADMISSION_OBJ(type='text', name='toefl_score', value="120")
+      span gre score:
+      input#gre_ID_OF_THIS_ADMISSION_OBJ(type='text', name='gre_score', value="301")
+      button#delete_obj_id.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") delete
+      button#update_obj_id.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") update

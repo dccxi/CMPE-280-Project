@@ -4,13 +4,16 @@ var Schema = mongoose.Schema;
 
 var PredictionSchema = new Schema(
   {
-    school_name: {type: String, required: true, max: 100},
-    sat_score: {type: Number, required: false, min: 1600, max: 2400},
-    gre_score: {type: Number, required: false, max: 330},
-    admission_prediction: {type: Number, required: true}
+    _id: Schema.Types.ObjectId,
+    name: String,
+    email: String,
+    toefl_score: {type: Number, required: false, min: 0, max: 120},
+    gre_score: {type: Number, required: false, min: 160, max: 330},
+    gpa: {type: Number, required: true},
+    research: {type: Boolean, required: true},
+    chance_of_admit: {type: Boolean, required: true}
   }
 );
-
 
 //Export model
 module.exports = mongoose.model('Prediction', PredictionSchema);

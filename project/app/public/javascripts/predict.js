@@ -20,7 +20,7 @@ document.getElementById('predict-submit').addEventListener('click', function (e)
         var name = document.getElementById('name').value;
         var gre = document.getElementById('gre').value;
         var toefl = document.getElementById('toefl').value;
-        var resultText = status ? `Hi, ${name}. According to your GRE & TOEFL scores ${gre} and ${toefl}. We predict your chance to be admitted to UCLA to be ${result}%.` : result;
+        var resultText = !status ? `Hi, ${name}. According to your GRE & TOEFL scores ${gre} and ${toefl}. We predict your chance to be admitted to UCLA to be ${result}%.` : result;
         document.getElementById('prediction-result').innerHTML = resultText;
         stopAnimation();
       })

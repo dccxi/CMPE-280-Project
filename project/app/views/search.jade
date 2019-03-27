@@ -1,0 +1,25 @@
+extends layout
+block content
+  .main.container
+    .row
+        h2 Query by searching the GRE and TOEFL scores
+        p TODO: Implement this page so that it displays text boxes for each search criteria.
+        p Right now we should support search for GRE/TOEFL score between xxx and yyy. And populate the page with the search results.
+        p An example of search fields below:
+      .row
+        .col-md-6.col-md-offset-3
+            div
+              label TOEFL Score between:
+              br
+              input#name.form-control(type='text', placeholder='0', name='toefl_lower_bound', onfocus='clearResult()')
+              input#name.form-control(type='text', placeholder='120', name='toefl_upper_bound', onfocus='clearResult()')
+            div
+              label GRE Score between:
+              br
+              input#name.form-control(type='text', placeholder='0', name='gre_lower_bound', onfocus='clearResult()')
+              input#name.form-control(type='text', placeholder='120', name='gre_upper_bound', onfocus='clearResult()')
+
+            button#search.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") Search
+            br
+            div.result
+              p#result
