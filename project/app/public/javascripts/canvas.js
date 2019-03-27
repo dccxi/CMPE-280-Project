@@ -1,5 +1,5 @@
-const CANVAS_W = 120;
-const CANVAS_H = 10;
+var CANVAS_W = 120;
+var CANVAS_H = 10;
 var ctx;
 var lineStatus = 1;
 
