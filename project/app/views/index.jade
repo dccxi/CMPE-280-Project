@@ -5,23 +5,23 @@ block content
     .titleImage
       img.className#IdName(src="/images/college.jpg" alt="Title image")
     .row
-      button(class="ui-button ui-widget ui-corner-all" onclick="redirect('/predict')") Go to Predict
-      button(class="ui-button ui-widget ui-corner-all" onclick="redirect('/about')") Go to About
-      button(class="ui-button ui-widget ui-corner-all" onclick="redirect('/login_form')" ) Go to Login form
+      button(id="loginButton" class="ui-button ui-widget ui-corner-all" onclick="redirect('/login_form')" ) Login
     .row
       h1= title
-      p Welcome to #{title}
+      p Welcome to #{title}!
+      p This is a UCLA admission tool made for prospective students.
+      p You can view all the existing admission results, search by querying your scores, and upload your own scores to see your chance of getting an admission!
     .row
-      h2#ui-state-default
-        Prediction Attributes Infomration
       div#tabs
         ul
           li
-            a(href="gre") GRE
+            a(href="view/all") View
           li
-            a(href="toefl") TOEFL
+            a(href="search") Search
           li
-            a(href="sat") SAT
+            a(href="predict") Predict
+          li
+            a(href="about") About
         div#content
     .row
       .col-md-6

@@ -1,22 +1,20 @@
 var Prediction = require('../models/prediction');
 
-var getPredictScore = function (gre, toefl, res) {
+var get_score = function (payload) {
     // return random value as prediction for now (prototyping)
-    res.json({
-        status: 1,
-        result: (Math.random() * 100).toString().slice(0, 4)
-    });
+    return (Math.random() * 100).toString().slice(0, 4);
 }
 
-// Display list of all BookInstances.
 exports.prediction_post = function (req, res) {
-    var { name, gre, toefl } = req.body;
-    if (name && gre && toefl) {
-        getPredictScore(gre, toefl, res)
-    } else {
-        res.json({
-            status: 0,
-            result: 'Invalid operation'
-        })
-    }
+    var payload = {
+        name: req.body.name,
+        school_name: req.body.school_name,
+        gre: req.body.gre_score,
+        sat: req.body.sat_score,
+    };
+    var score = get_score(payload);
+    res.json({
+        status: 0,
+        result: score
+    });
 };

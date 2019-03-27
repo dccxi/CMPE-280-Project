@@ -1,13 +1,8 @@
 extends layout
-
 block content
   .main.container
-    .titleImage
-      img.className#IdName(src="/images/college.jpg" alt="Title image")
     .row
-      button(onclick="redirect('/')" class="ui-button ui-widget ui-corner-all") Go to the main page
-    .row
-      h1= title
+      h2= title
       p #{desc}
 
     script.
