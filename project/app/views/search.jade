@@ -11,15 +11,15 @@ block content
             div
               label TOEFL Score between:
               br
-              input#name.form-control(type='text', placeholder='0', name='toefl_lower_bound', onfocus='clearResult()')
-              input#name.form-control(type='text', placeholder='120', name='toefl_upper_bound', onfocus='clearResult()')
+              input#search_t_l.form-control(type='text', placeholder='0', name='toefl_lower_bound', onfocus='clearResult()')
+              input#search_t_u.form-control(type='text', placeholder='120', name='toefl_upper_bound', onfocus='clearResult()')
             div
               label GRE Score between:
               br
-              input#name.form-control(type='text', placeholder='0', name='gre_lower_bound', onfocus='clearResult()')
-              input#name.form-control(type='text', placeholder='120', name='gre_upper_bound', onfocus='clearResult()')
+              input#search_g_l.form-control(type='text', placeholder='260', name='gre_lower_bound', onfocus='clearResult()')
+              input#search_g_u.form-control(type='text', placeholder='340', name='gre_upper_bound', onfocus='clearResult()')
 
-            button#search.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") Search
+            button#search_button.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") Search
             br
             div.result
               p#result
