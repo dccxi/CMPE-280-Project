@@ -1,50 +1,38 @@
 var Admission = require('../models/admission');
 
-exports.admission_list_all_get = function () {
+exports.admission_list_all_get = function (req, res) {
     Admission.find()
         .limit(50)
         .exec(function (err, admissions) {
-            if (err) { return next(err); }
+          if (err) { return next(err); }
+          else {
             // Success, return a list of admission objects
-            return admissions;
+            console.log(admissions)
+            res.render('view_all', { title: 'Ajax tab 2', admissions: admissions, test: 'tt' });
+          }
         })
-
 };
 
 exports.admission_search_post = function (req, res, next) {
   // Default values
-  var gre_lower_bound = 260;
-  var gre_upper_bound = 340;
-  var toefl_lower_bound = 0;
-  var toefl_upper_bound = 120;
-
-  if (req.body.gre_lower_bound != undefined) {
-    gre_lower_bound = req.body.gre_lower_bound;
-  }
-  if (req.body.gre_upper_bound != undefined) {
-    gre_upper_bound = req.body.gre_upper_bound;
-  }
-  if (req.body.toefl_lower_bound != undefined) {
-    toefl_lower_bound = req.body.toefl_lower_bound;
-  }
-  if (req.body.toefl_upper_bound != undefined) {
-    toefl_upper_bound = req.body.toefl_upper_bound;
-  }
+  var gre_lower_bound = req.body.gre_lower_bound || 260;
+  var gre_upper_bound = req.body.gre_upper_bound || 340;
+  var toefl_lower_bound = req.body.toefl_lower_bound || 0;
+  var toefl_upper_bound = req.body.toefl_upper_bound || 120;
 
   var query = Admission.find({
     'gre': {
-      '$gte': gre_lower_bound,
+      '$gt': gre_lower_bound,
       '$lt': gre_upper_bound
     },
     'toefl': {
-      '$gte': toefl_lower_bound,
+      '$gt': toefl_lower_bound,
       '$lt': toefl_upper_bound
     }
   });
 
   query.select('gre_score, toefl_score, gpa, research, chance_of_admit');
   query.limit(50);
-
   // execute the query at a later time
   query.exec(function (err, admissions) {
       if (err) { return next(err); }
