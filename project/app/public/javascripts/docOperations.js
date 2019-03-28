@@ -1,19 +1,48 @@
 var deleteDoc = function (e) {
-  // TODO:
-  // send POST request to /delete route
-  // when success, remove div
-  // when fail, alert
-  console.log(e.parentNode.id)
+  var id = e.parentNode.id;
+  fetch('/admission/delete/' + id, {
+    method: 'DELETE'
+  }).
+    then(res => res.json()).
+    then(res => {
+      if (res.status) {
+        document.getElementById(id).remove()
+        alert('document with id ' + id + ' was deleted successfully')
+      } else {
+        throw new Error('delete failed on server side')
+      }
+    }).
+    catch(err => {
+      console.error(err)
+      alert('delete failed')
+    })
 }
 
 var updateDoc = function (e) {
   var parent = e.parentNode;
   var id = parent.id;
-  var toefl = parent.childNodes[1].value;
-  var gre = parent.childNodes[3].value;
-  // TODO:
-  // send POST request to /update route
-  // ...
+  var toefl_score = Number(parent.childNodes[1].value);
+  var gre_score = Number(parent.childNodes[3].value);
+  fetch('/admission/update/'+id, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+    body: JSON.stringify({
+      toefl_score,
+      gre_score
+    })
+  }).
+    then(res => res.json()).
+    then(res => {
+      if (res.status) {
+        alert('update success')
+      } else {
+        throw new Error('update failed on server side')
+      }
+    }).
+    catch(err => {
+      console.error(err)
+      alert('update failed')
+    })
 }
 
 document.getElementById('create_one').addEventListener('click', function (e) {
