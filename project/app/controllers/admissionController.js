@@ -7,8 +7,7 @@ exports.admission_list_all_get = function (req, res) {
           if (err) { return next(err); }
           else {
             // Success, return a list of admission objects
-            console.log(admissions)
-            res.render('view_all', { title: 'Ajax tab 2', admissions: admissions, test: 'tt' });
+            res.render('view_all', { title: 'Ajax tab 2', admissions: admissions});
           }
         })
 };
