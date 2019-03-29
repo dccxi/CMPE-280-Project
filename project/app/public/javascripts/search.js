@@ -15,6 +15,7 @@ document.getElementById('search_button').addEventListener('click', function (e) 
           // populate results from payload
           var admissions = res.payload
           var result = document.getElementById('search_result');
+          result.innerHTML = '';
           for (var admission of admissions) {
             var node = document.createElement('div')
             node.innerHTML = `
