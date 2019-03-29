@@ -2,12 +2,9 @@ extends layout
 block content
   .main.container
     .row
-      h2 View All Admission Results
-      p each row should have one update, and one delete button.
-      p Upon delete, the div that contains the row should be removed from html
-      p on the top of the page should have a section to create a new admission entry, the newly created entry will be inserted at the top of the list of existing admissions
+      h2 View All Admissions
     .row
-      h4 Create a new admission:
+      h4 Submit a new admission:
       form#create-form
         div.form-group
           label(for='toefl') TOEFL Score (0-120):
@@ -17,7 +14,7 @@ block content
           input#create_gre.form-control(type='number', name='gre_score', min='260', max='340', required)
         button#create_one.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") create
     .row
-      h4 All Admissions in the database:
+      h4 All:
       - for (var admission of admissions)
         .row(id=admission._id)
           span TOEFL:

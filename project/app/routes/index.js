@@ -10,11 +10,11 @@ router.get('/login_form', function (req, res) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'College Admission Predictor' });
+  res.render('index', { title: 'UCLA Admission Predictor' });
 });
 
 router.get('/about', function (req, res) {
-  var desc = "Hi, this is the about page. This is a web app for CMPE 280 class.";
+  var desc = "Thank you for using College Predictor";
   res.render('about', { title: 'About', desc: desc});
 });
 
