@@ -1,6 +1,5 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 35px;
   margin: 10px auto;
   position: relative;
 }
@@ -15,30 +14,21 @@ input:invalid {
 
 input {
   width: 25%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 6px 10px;
+  margin: 8px 4px;
   box-sizing: border-box;
 }
 
-.navButton{
-  background-color: white;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  position:relative;
-  top:40%;
-  left:0%;
-  cursor:pointer;
-  transition: 0.3s;
-  opacity: 0.6;
+#headerImg {
+  width: 100%
 }
-.navButton:hover {opacity: 1;}
 
-div.titleImage {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
+h1, h2, h3, h4 {
+  font-family: Anton;
+  color: #333;
+}
+
+span, label, p, input {
+  font-family: "Open Sans";
+  color: #333;
 }

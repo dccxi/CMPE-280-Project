@@ -2,14 +2,14 @@ extends layout
 
 block content
   .main.container
-    .titleImage
-      img.className#IdName(src="/images/college.jpg" alt="Title image")
     .row
-      button(id="loginButton" class="ui-button ui-widget ui-corner-all" onclick="redirect('/login_form')" ) Login
+      img#headerImg(src="/images/college.jpg" alt="Header image")
+    .row
+    //  button(id="loginButton" class="ui-button ui-widget ui-corner-all" onclick="redirect('/login_form')" ) Login
     .row
       h1= title
       p Welcome to #{title}!
-      p This is a UCLA admission tool made for prospective students.
+      p This is a college admission tool made for prospective students.
       p You can view all the existing admission results, search by querying your scores, and upload your own scores to see your chance of getting an admission!
     .row
       div#tabs
