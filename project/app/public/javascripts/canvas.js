@@ -1,10 +1,10 @@
-const CANVAS_W = 120;
-const CANVAS_H = 10;
+var CANVAS_W = 120;
+var CANVAS_H = 10;
 var ctx;
 var lineStatus = 1;
 
 function init() {
-  ctx = document.getElementById('canvas').getContext('2d')
+  ctx = document.getElementById('predict-canvas').getContext('2d')
 }
 
 function draw() {

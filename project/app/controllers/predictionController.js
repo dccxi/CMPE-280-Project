@@ -8,9 +8,10 @@ var get_score = function (payload) {
 exports.prediction_post = function (req, res) {
     var payload = {
         name: req.body.name,
-        school_name: req.body.school_name,
-        gre: req.body.gre_score,
-        sat: req.body.sat_score,
+        email: req.body.email,
+        gre: req.body.gre,
+        toefl: req.body.toefl,
+        comments: req.body.comments
     };
     var score = get_score(payload);
     res.json({

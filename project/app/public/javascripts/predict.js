@@ -1,7 +1,7 @@
 //- modify DOM to show the result when send prediction
 document.getElementById('predict-submit').addEventListener('click', function (e) {
   e.preventDefault()
-  if (isValidById('name', 'gre', 'toefl')) {
+  if (isValidById('predict-name', 'predict-gre', 'predict-toefl')) {
     //- construct the form from scratch
     var form = document.getElementById('predict-form');
     var formData = new FormData(form);
@@ -17,9 +17,9 @@ document.getElementById('predict-submit').addEventListener('click', function (e)
       }).then(function (res) {
         //- display result
         var { status, result } = res;
-        var name = document.getElementById('name').value;
-        var gre = document.getElementById('gre').value;
-        var toefl = document.getElementById('toefl').value;
+        var name = document.getElementById('predict-name').value;
+        var gre = document.getElementById('predict-gre').value;
+        var toefl = document.getElementById('predict-toefl').value;
         var resultText = !status ? `Hi, ${name}. According to your GRE & TOEFL scores ${gre} and ${toefl}. We predict your chance to be admitted to UCLA to be ${result}%.` : result;
         document.getElementById('prediction-result').innerHTML = resultText;
         stopAnimation();
@@ -33,7 +33,7 @@ document.getElementById('predict-submit').addEventListener('click', function (e)
 var Animation = {}
 
 function startAnimation() {
-  if (!Animation.running && isValidById('name', 'gre', 'toefl')) {
+  if (!Animation.running && isValidById('predict-name', 'predict-gre', 'predict-toefl')) {
     init()
     Animation.running = setInterval(draw, 200)
   }
