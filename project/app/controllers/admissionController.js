@@ -40,22 +40,15 @@ exports.admission_search_post = function (req, res, next) {
 }
 
 exports.admission_create_post = function (req, res, next) {
-    var obj = new Admission(
-        {
-            toefl: req.body.toefl_score,
-            gre_score: req.body.gre_score,
-            gpa: req.body.gpa,
-            research: req.body.research,
-            chance_of_admit: req.body.chance_of_admit
-        }
-    );
     // Save new admission.
-    obj.save(function (err) {
-        if (err) { return next(err); }
-        // Success
-        // You can access the ObjectId by using obj.id
-        res.json({ status: 1, payload: obj });
-    });
+  console.log(req.body)
+  new Admission(req.body).save()
+    .then(doc => {
+      res.json({ status: 1, id: doc._id });
+    }).catch(err => {
+      console.error(err.message);
+      res.json({ status: 0, error: err.message})
+    })
 };
 
 exports.admission_update_post = function (req, res, next) {
