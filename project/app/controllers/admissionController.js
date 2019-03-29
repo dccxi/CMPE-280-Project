@@ -14,26 +14,21 @@ exports.admission_list_all_get = function (req, res) {
 
 exports.admission_search_post = function (req, res, next) {
   // Default values
-  var gre_lower_bound = req.body.gre_lower_bound || 260;
-  var gre_upper_bound = req.body.gre_upper_bound || 340;
-  var toefl_lower_bound = req.body.toefl_lower_bound || 0;
-  var toefl_upper_bound = req.body.toefl_upper_bound || 120;
+  var gre_lower_bound = Number(req.body.gre_lower_bound) || 260;
+  var gre_upper_bound = Number(req.body.gre_upper_bound) || 340;
+  var toefl_lower_bound = Number(req.body.toefl_lower_bound) || 0;
+  var toefl_upper_bound = Number(req.body.toefl_upper_bound) || 120;
 
-  var query = Admission.find({
-    'gre': {
-      '$gt': gre_lower_bound,
-      '$lt': gre_upper_bound
+  Admission.find({
+    'gre_score': {
+      '$gte': gre_lower_bound,
+      '$lte': gre_upper_bound
     },
-    'toefl': {
-      '$gt': toefl_lower_bound,
-      '$lt': toefl_upper_bound
+    'toefl_score': {
+      '$gte': toefl_lower_bound,
+      '$lte': toefl_upper_bound
     }
-  });
-
-  query.select('gre_score, toefl_score, gpa, research, chance_of_admit');
-  query.limit(50);
-  // execute the query at a later time
-  query.exec(function (err, admissions) {
+  }).limit(50).exec(function (err, admissions) {
       if (err) { return next(err); }
       res.json({ status: 1, payload: admissions })
   })

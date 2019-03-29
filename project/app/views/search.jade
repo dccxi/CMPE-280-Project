@@ -3,23 +3,20 @@ block content
   .main.container
     .row
         h2 Query by searching the GRE and TOEFL scores
-        p TODO: Implement this page so that it displays text boxes for each search criteria.
-        p Right now we should support search for GRE/TOEFL score between xxx and yyy. And populate the result div with the search results.
-        p An example of search fields below:
       .row
-        .col-md-6.col-md-offset-3
+        form#search-form
             div
               label TOEFL Score between:
               br
-              input#search_t_l.form-control(type='text', placeholder='0', name='toefl_lower_bound', onfocus='clearResult()')
-              input#search_t_u.form-control(type='text', placeholder='120', name='toefl_upper_bound', onfocus='clearResult()')
+              input#search_t_l.form-control(type='number', value=0, name='toefl_lower_bound', min=0, max=120, required)
+              input#search_t_u.form-control(type='number', value=120, name='toefl_upper_bound', min=0, max=120, required)
             div
               label GRE Score between:
               br
-              input#search_g_l.form-control(type='text', placeholder='260', name='gre_lower_bound', onfocus='clearResult()')
-              input#search_g_u.form-control(type='text', placeholder='340', name='gre_upper_bound', onfocus='clearResult()')
+              input#search_g_l.form-control(type='number', value=260, name='gre_lower_bound', min=260, max=340, required)
+              input#search_g_u.form-control(type='number', value=340, name='gre_upper_bound', min=260, max=340, required)
 
             button#search_button.btn.btn-primary(type='button', class="ui-button ui-widget ui-corner-all") Search
             br
-            div.result
-              p#result
+            div#search_result
+    script(src='/javascripts/search.js')

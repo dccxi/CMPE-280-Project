@@ -32,5 +32,6 @@ router.get('/view/all', admission_controller.admission_list_all_get);
 router.post('/admission/create', admission_controller.admission_create_post);
 router.post('/admission/update/:id', admission_controller.admission_update_post);
 router.delete('/admission/delete/:id', admission_controller.admission_delete_post);
+router.post('/admission/search', admission_controller.admission_search_post)
 
 module.exports = router;
