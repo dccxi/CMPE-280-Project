@@ -59,6 +59,7 @@ document.getElementById('create_one').addEventListener('click', function (e) {
       .then(res => {
         if (res.status) {
           alert('document with id ' + res.id + ' was created successfully')
+          location.reload()
         } else {
           throw new Error('create failed on server side')
         }
