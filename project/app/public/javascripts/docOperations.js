@@ -1,7 +1,7 @@
 var deleteDoc = function (e) {
   var id = e.parentNode.id;
   if (confirm("Confirm to delete document (id " + id + ")")) {
-    fetch('/admission/delete/' + id, {
+    fetch('/admission/' + id, {
       method: 'DELETE'
     }).
       then(res => res.json()).
@@ -25,8 +25,8 @@ var updateDoc = function (e) {
   var id = parent.id;
   var toefl_score = Number(parent.childNodes[1].value);
   var gre_score = Number(parent.childNodes[3].value);
-  fetch('/admission/update/'+id, {
-    method: 'POST',
+  fetch('/admission/'+id, {
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json; charset=UTF-8' },
     body: JSON.stringify({
       toefl_score,
@@ -51,7 +51,7 @@ document.getElementById('create_one').addEventListener('click', function (e) {
     var form = document.getElementById('create-form');
     var formData = new FormData(form);
     var body = new URLSearchParams(formData)
-    fetch('/admission/create', {
+    fetch('/admission', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
       body
