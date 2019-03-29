@@ -1,21 +1,23 @@
 var deleteDoc = function (e) {
   var id = e.parentNode.id;
-  fetch('/admission/delete/' + id, {
-    method: 'DELETE'
-  }).
-    then(res => res.json()).
-    then(res => {
-      if (res.status) {
-        document.getElementById(id).remove()
-        alert('document with id ' + id + ' was deleted successfully')
-      } else {
-        throw new Error('delete failed on server side')
-      }
+  if (confirm("Confirm to delete document (id " + id + ")")) {
+    fetch('/admission/delete/' + id, {
+      method: 'DELETE'
     }).
-    catch(err => {
-      console.error(err)
-      alert('delete failed')
-    })
+      then(res => res.json()).
+      then(res => {
+        if (res.status) {
+          document.getElementById(id).remove()
+          alert('document with id ' + id + ' was deleted successfully')
+        } else {
+          throw new Error('delete failed on server side')
+        }
+      }).
+      catch(err => {
+        console.error(err)
+        alert('delete failed')
+      })
+  }
 }
 
 var updateDoc = function (e) {
