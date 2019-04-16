@@ -4,12 +4,22 @@ block content
     .row
       h2 Visualize Our Admission!
     .row
-      h4 All:
-      - for (var admission of admissions)
-        .row(id=admission._id)
-          span TOEFL:
-          input(type='text', name='toefl_score', value=admission.toefl_score)
-          span GRE:
-          input(type='text', name='gre_score', value=admission.gre_score)
-          button(type='button', class="ui-button ui-widget ui-corner-all", onclick="deleteDoc(this)") delete
-          button(type='button', class="ui-button ui-widget ui-corner-all", onclick="updateDoc(this)") update
+      .row#chart0
+        h4 this is the first chart
+        img(src="images/1.gif")
+    .row
+      .col-md-6#chart1left
+        h4 this is the second chart
+        img(src="images/1.gif")
+
+      .col-md-6#chart1right
+        h4 this is the third chart
+        img(src="images/1.gif")
+
+    .row
+      .row#chart2
+        h4 this is the fourth chart
+        img(src="images/1.gif")
+
+    script(src="https://d3js.org/d3.v5.min.js")
+    script(src='/javascripts/charts.js')

@@ -1,4 +1,3 @@
-
 $(init);
 function init()
 {

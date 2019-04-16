@@ -29,6 +29,20 @@ input {
 #headerText {
   letter-spacing: 3px;
 }
+
+img {
+  width: 100%;
+}
+#chart1left {
+  float: left;
+  width: 50%;
+}
+
+#chart1right {
+  float: right;
+  width: 50%;
+}
+
 h1, h2, h3, h4 {
   font-family: Anton;
   color: #333;
