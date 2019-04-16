@@ -10,6 +10,7 @@ var app = express();
 
 // Set up mongoose connection
 var dev_db_url = process.env.DB_URI;
+var dev_db_url = 'mongodb://root:root1pass@ds012889.mlab.com:12889/cmpe280';
 
 var mongoose = require('mongoose');
 var mongoDB = dev_db_url;

@@ -7,7 +7,19 @@ exports.admission_list_all_get = function (req, res) {
           if (err) { return next(err); }
           else {
             // Success, return a list of admission objects
-            res.render('view_all', { title: 'Ajax tab 2', admissions: admissions});
+            res.render('view_all', {admissions: admissions});
+          }
+        })
+};
+
+exports.charts_get = function (req, res) {
+    Admission.find()
+        .limit(50)
+        .exec(function (err, admissions) {
+          if (err) { return next(err); }
+          else {
+            // Success, return a list of admission objects
+            res.render('charts', {admissions: admissions});
           }
         })
 };

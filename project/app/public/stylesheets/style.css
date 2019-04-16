@@ -19,16 +19,41 @@ input {
   box-sizing: border-box;
 }
 
-#headerImg {
-  width: 100%
+#topline {
+  height: 10px;
+  color: blue;
+  border: 0;
+  border-top: 20px solid #ccc;
 }
 
+#headerText {
+  letter-spacing: 3px;
+}
 h1, h2, h3, h4 {
   font-family: Anton;
   color: #333;
 }
 
+h1 {
+    text-align: center;
+}
+
 span, label, p, input {
   font-family: "Open Sans";
   color: #333;
+}
+
+table, th, td {
+  border: 1px solid #333;
+  font-family: 'Open Sans';
+  color: #333;
+}
+
+th, td {
+  padding: 5px;
+  width: 300px;
+}
+
+#search_result_wrapper {
+  margin: 10px;
 }
