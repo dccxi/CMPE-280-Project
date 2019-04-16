@@ -1,0 +1,15 @@
+extends layout
+block content
+  .main.container
+    .row
+      h2 Visualize Our Admission!
+    .row
+      h4 All:
+      - for (var admission of admissions)
+        .row(id=admission._id)
+          span TOEFL:
+          input(type='text', name='toefl_score', value=admission.toefl_score)
+          span GRE:
+          input(type='text', name='gre_score', value=admission.gre_score)
+          button(type='button', class="ui-button ui-widget ui-corner-all", onclick="deleteDoc(this)") delete
+          button(type='button', class="ui-button ui-widget ui-corner-all", onclick="updateDoc(this)") update

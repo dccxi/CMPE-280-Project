@@ -16,13 +16,20 @@ document.getElementById('search_button').addEventListener('click', function (e) 
           var admissions = res.payload
           var result = document.getElementById('search_result');
           result.innerHTML = '';
+          var node = document.createElement('tr')
+          node.innerHTML = `
+            <th>ID</th>
+            <th>GRE</th>
+            <th>TOEFL</th>`
+          result.appendChild(node)
+
           for (var admission of admissions) {
-            var node = document.createElement('div')
+            var node = document.createElement('tr')
+
             node.innerHTML = `
-              <p>Document ID: ${admission._id}</p>
-              <p>GRE: ${admission.gre_score}</p>
-              <p>TOEFL: ${admission.toefl_score}</p>
-              <br>`
+            <td>${admission._id}</td>
+            <td>${admission.gre_score}</td>
+            <td>${admission.toefl_score}</td>`
             result.appendChild(node)
           }
         } else {

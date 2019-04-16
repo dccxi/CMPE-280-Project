@@ -28,6 +28,7 @@ router.get('/search',function(req,res){
 })
 
 router.get('/view/all', admission_controller.admission_list_all_get);
+router.get('/charts', admission_controller.charts_get);
 
 router.post('/admission', admission_controller.admission_create_post);
 router.put('/admission/:id', admission_controller.admission_update_post);
