@@ -9,8 +9,8 @@ mongoose.connect(process.env.DB_URI, {
 for (var i = "0"; i < "9"; ++i) {
     doc = {}
     doc.year = "201" + i;
-    doc.admin = Math.round(Math.random()*10000)/100;
-    doc.enroll = Math.round((100 - doc.admin)*100)/100;
+    doc.admin = Math.round((20+Math.random()*15)*100)/100;
+    doc.enroll = Math.round((55+Math.random()*10)*100)/100;
     doc.dist = {
         art: 6.2,
         science: 14.8,
