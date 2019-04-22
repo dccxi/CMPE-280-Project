@@ -12,7 +12,7 @@ Chart.defaults.global.defaultFontColor='#777';
 trend_labels = ['Apr 1', 'Apr 2', 'Apr 3', 'Apr 4'];
 trend_data = [7,20,21,3];
 
-console.log(document.getElementById('dashboard_data'));
+// console.log(document.getElementById('dashboard_data'));
 
 let trend = new Chart(dailyTrend ,{
   type:'line', //bar, horizontal bar, pie, line, doughnut, radar, polar area
