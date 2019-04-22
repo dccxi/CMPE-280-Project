@@ -5,6 +5,7 @@ let greDistribution = document.getElementById('gre_dist').getContext('2d');
 let toeflDistribution = document.getElementById('toefl_dist').getContext('2d');
 let student_comparison = document.getElementById('compare_students').getContext('2d');
 document.getElementById('seatsFilled').height = 250;
+document.getElementById('dailyTrend').height = 75;
 Chart.defaults.global.defaultFontFamily='Helvetica';
 Chart.defaults.global.defaultFontSize=14;
 Chart.defaults.global.defaultFontColor='#777';
