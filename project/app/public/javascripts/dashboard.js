@@ -1,6 +1,12 @@
-//1
 google.charts.load('current', {'packages':['corechart','line']});
 google.charts.setOnLoadCallback(drawLine);
+google.charts.setOnLoadCallback(drawPie1);
+google.charts.setOnLoadCallback(drawPie2);
+google.charts.setOnLoadCallback(drawInt1);
+google.charts.setOnLoadCallback(drawInt2);
+google.charts.setOnLoadCallback(drawInt3);
+
+var height = 250;
 
 function drawLine() {
   var data = new google.visualization.DataTable();
@@ -25,8 +31,7 @@ function drawLine() {
     vAxis: {
       title: 'Percentage'
     },
-    width: 400,
-    height: 250,
+    height: height,
     pointSize: 10,
     series: {
       0: { pointShape: 'circle' },
@@ -40,9 +45,6 @@ function drawLine() {
   chart.draw(data, options);
 }
 
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawPie1);
-
 function drawPie1() {
 
   var data = google.visualization.arrayToDataTable([
@@ -55,8 +57,8 @@ function drawPie1() {
 
   var options = {
     title: 'Admission distribution by College and School',
-    width: 350,
-    height: 250,
+    width: '100%',
+    height: height,
     colors:['#2D63D0','#1CB03F','#B07A1C','#CAC6BF'],
     legend: {maxLines: 3, textStyle: {fontSize: 10}},
     chartArea: {width: '100%', height: '79%',top: 50},
@@ -71,9 +73,6 @@ function drawPie1() {
   chart.draw(data, options);
 }
 
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawPie2);
-
 function drawPie2() {
 
   var data = google.visualization.arrayToDataTable([
@@ -86,8 +85,8 @@ function drawPie2() {
 
   var options = {
     title: 'Admission distribution by School type',
-    width: 350,
-    height: 250,
+    width: '100%',
+    height: height,
     colors:['#8E2814','#0D6145','#8137B2','#CAC6BF'],
     legend: {maxLines: 3, textStyle: {fontSize: 10}},
     chartArea: {width: '100%', height: '79%', top: 50},
@@ -101,9 +100,6 @@ function drawPie2() {
 
   chart.draw(data, options);
 }
-
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawInt1);
 
 function drawInt1() {
   var data = new google.visualization.DataTable();
@@ -137,8 +133,6 @@ function drawInt1() {
   chart_lines.draw(data, options_lines);
 }
 
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawInt2);
 
 function drawInt2() {
   var data = new google.visualization.DataTable();
@@ -172,8 +166,6 @@ function drawInt2() {
   chart_lines.draw(data, options_lines);
 }
 
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawInt3);
 
 function drawInt3() {
   var data = new google.visualization.DataTable();
@@ -194,7 +186,7 @@ function drawInt3() {
       ['2018', 324, 321, 336],
     ]);
 
-        // The intervals data as narrow lines (useful for showing raw source data)
+  // The intervals data as narrow lines (useful for showing raw source data)
   var options_lines = {
       title: 'GRE median [min,max] scores since 2010',
       curveType: 'line',

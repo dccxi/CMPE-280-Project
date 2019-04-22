@@ -10,7 +10,7 @@ var app = express();
 
 // Set up mongoose connection
 var dev_db_url = process.env.DB_URI;
-
+	
 var mongoose = require('mongoose');
 var mongoDB = dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true });
