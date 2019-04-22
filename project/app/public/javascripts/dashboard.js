@@ -13,46 +13,54 @@ function drawLine() {
   data.addColumn('string', 'Year');
   data.addColumn('number', 'Admit rate');
   data.addColumn('number', 'Enroll rate');
-  data.addRows([
-    ['2010', 31.45, 61.50],
-    ['2011', 30.14, 59.67],
-    ['2012', 32.3, 60.41],
-    ['2013', 31.24, 57.43],
-    ['2014', 31.39, 61.51],
-    ['2015', 26, 60],
-    ['2016', 26, 59],
-    ['2017', 25, 57],
-    ['2018', 23, 61],
-  ]);
-  var options = {'title' : 'Admission rate & Enrollment rate since 2010',
-    hAxis: {
-      title: 'Year'
-    },
-    vAxis: {
-      title: 'Percentage'
-    },
-    height: height,
-    pointSize: 10,
-    series: {
-      0: { pointShape: 'circle' },
-      1: { pointShape: 'star' },
-    },
-    pointsVisible: true,
-  };
-
-            // Instantiate and draw the chart.
-  var chart = new google.visualization.LineChart(document.getElementById('chart1'));
-  chart.draw(data, options);
+  fetch('/kpi/line', {
+    method: 'GET'
+  }).then(res => res.json())
+    .then(res => {
+      if (res) {
+        var rows = []
+        for (var i = 0; i < res.length; ++i) {
+          var row = res[i]
+          rows[row.year - '2010'] = [
+            row.year, row.admin, row.enroll
+          ]
+        }
+        data.addRows(rows);
+        var options = {'title' : 'Admission rate & Enrollment rate since 2010',
+          hAxis: {
+            title: 'Year'
+          },
+          vAxis: {
+            title: 'Percentage'
+          },
+          height: height,
+          pointSize: 10,
+          series: {
+            0: { pointShape: 'circle' },
+            1: { pointShape: 'star' },
+          },
+          pointsVisible: true,
+        };
+        // Instantiate and draw the chart.
+        var chart = new google.visualization.LineChart(document.getElementById('chart1'));
+        chart.draw(data, options);
+      } else {
+        throw new Error('line data fetch failed on server side')
+      }
+    })
+    .catch(err => {
+      console.error(err)
+    })
 }
 
 function drawPie1() {
 
   var data = google.visualization.arrayToDataTable([
     ['College and School', 'Percentage'],
-    ['Letters and Science',     90.86],
-    ['Arts and Architect',      1.79],
-    ['Eng and Science',  6.6],
-    ['Others', 0.75],
+    ['Art',                         6.2],
+    ['Science',                    14.8],
+    ['Engineering',                68.2],
+    ['Others',                     10.8],
   ]);
 
   var options = {
@@ -61,11 +69,7 @@ function drawPie1() {
     height: height,
     colors:['#2D63D0','#1CB03F','#B07A1C','#CAC6BF'],
     legend: {maxLines: 3, textStyle: {fontSize: 10}},
-    chartArea: {width: '100%', height: '79%',top: 50},
-    slices: {  1: {offset: 0.25},
-               2: {offset: 0.15},
-               3: {offset: 0.00},
-    },
+    chartArea: {width: '100%', height: '79%',top: 50}
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('chart2'));

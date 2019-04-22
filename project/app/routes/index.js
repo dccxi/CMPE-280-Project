@@ -3,6 +3,7 @@ var router = express.Router();
 
 var prediction_controller = require('../controllers/predictionController');
 var admission_controller = require('../controllers/admissionController');
+var kpi_controller = require('../controllers/kpiController');
 
 router.get('/login_form', function (req, res) {
   res.render('login_form', {title: 'Login Form'})
@@ -37,6 +38,7 @@ router.get('/charts', admission_controller.charts_get);
 router.post('/admission', admission_controller.admission_create_post);
 router.put('/admission/:id', admission_controller.admission_update_post);
 router.delete('/admission/:id', admission_controller.admission_delete_post);
-router.post('/admission/search', admission_controller.admission_search_post)
+router.post('/admission/search', admission_controller.admission_search_post);
 
+router.get('/kpi/line', kpi_controller.KPI_line_plot);
 module.exports = router;
