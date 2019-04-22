@@ -27,9 +27,6 @@ router.get('/search',function(req,res){
     res.render('search', {title: 'Ajax tab 1'});
 })
 
-router.get('/dashboard', function(req, res){
-  res.render('dashboard');
-});
 
 
 router.get('/view/all', admission_controller.admission_list_all_get);

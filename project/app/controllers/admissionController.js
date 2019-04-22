@@ -133,7 +133,7 @@ exports.dashboard_data = function( req, res){
             var gre_frequency_table = frequencyTable(data, 'gre');
             var toefl_frequqency_table = frequencyTable(data, 'toefl');
 
-            res.render('dashboard', 
+            res.render('dashboardData', 
             {'gre_avg' : parseInt(avg_data.gre_average), 
               'toefl_avg' : parseInt(avg_data.toefl_average),
               'gre_dist' : gre_frequency_table,
