@@ -27,9 +27,14 @@ router.get('/search',function(req,res){
     res.render('search', {title: 'Ajax tab 1'});
 })
 
+router.get('/dashboard', function(req, res){
+  res.render('dashboard');
+});
+
+
 router.get('/view/all', admission_controller.admission_list_all_get);
 router.get('/charts', admission_controller.charts_get);
-
+router.get('/dashboardData', admission_controller.dashboard_data);
 router.post('/admission', admission_controller.admission_create_post);
 router.put('/admission/:id', admission_controller.admission_update_post);
 router.delete('/admission/:id', admission_controller.admission_delete_post);
