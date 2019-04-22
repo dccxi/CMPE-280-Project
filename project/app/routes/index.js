@@ -41,4 +41,9 @@ router.delete('/admission/:id', admission_controller.admission_delete_post);
 router.post('/admission/search', admission_controller.admission_search_post);
 
 router.get('/kpi/line', kpi_controller.KPI_line_plot);
+router.get('/kpi/pie1', kpi_controller.KPI_pie1);
+router.get('/kpi/pie2', kpi_controller.KPI_pie2);
+router.get('/kpi/int1', kpi_controller.KPI_int1);
+router.get('/kpi/int2', kpi_controller.KPI_int2);
+router.get('/kpi/int3', kpi_controller.KPI_int3);
 module.exports = router;
