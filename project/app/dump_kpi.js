@@ -25,13 +25,16 @@ for (var i = "0"; i < "9"; ++i) {
     };
     doc.sat_min = Math.round(1100 + Math.random() * 200);
     doc.sat_max = Math.round(1600 - Math.random() * 100);
-    doc.sat_med = Math.round(doc.sat_min + Math.random() * (doc.sat_max - doc.sat_min));
-    doc.toefl_min = Math.round(80 + Math.random() * 20);
-    doc.toefl_max = Math.round(110 - Math.random() * 10);
-    doc.toefl_med = Math.round(doc.sat_min + Math.random() * (doc.sat_max - doc.sat_min));
-    doc.gre_min = Math.round(300 + Math.random() * 20);
-    doc.gre_max = Math.round(330 - Math.random() * 10);
-    doc.gre_med = Math.round(doc.sat_min + Math.random() * (doc.sat_max - doc.sat_min));
+    doc.sat_med = Math.round(1425 - Math.random() * 50);
+    // doc.sat_med = Math.round(doc.sat_min + Math.random() * (doc.sat_max - doc.sat_min));
+    doc.toefl_min = Math.round(80 + Math.random() * 15);
+    doc.toefl_max = Math.round(110 + Math.random() * 10);
+    doc.toefl_med = Math.round(95 + Math.random() * 10);
+    // doc.toefl_med = Math.round(doc.toefl_min + Math.random() * (doc.toefl_max - doc.sat_min));
+    doc.gre_min = Math.round(300 + Math.random() * 15);
+    doc.gre_max = Math.round(330 + Math.random() * 10);
+    doc.gre_med = Math.round(320 + Math.random() * 10);
+    // doc.gre_med = Math.round(doc.gre_min + Math.random() * (doc.gre_max - doc.sat_min));
     new KPI(doc).save()
         .then(() => console.log('saved'))
         .catch(err => console.log(err.message))
