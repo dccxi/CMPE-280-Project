@@ -1,10 +1,5 @@
 var Prediction = require('../models/prediction');
 
-var get_score = function (payload) {
-    // return random value as prediction for now (prototyping)
-    return (Math.random() * 100).toString().slice(0, 4);
-}
-
 exports.prediction_post = function (req, res) {
     var payload = {
         name: req.body.name,
@@ -13,9 +8,12 @@ exports.prediction_post = function (req, res) {
         toefl: req.body.toefl,
         comments: req.body.comments
     };
-    var score = get_score(payload);
-    res.json({
-        status: 0,
-        result: score
-    });
+    var spawn = require('child_process').spawn;
+    var py = spawn('python3', ['./predict.py', payload.gre, payload.toefl])
+    py.stdout.on('data', (data) => {
+        res.json({
+            status: 0,
+            result: data.toString()
+        })
+    })
 };
