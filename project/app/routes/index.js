@@ -46,4 +46,6 @@ router.get('/kpi/pie2', kpi_controller.KPI_pie2);
 router.get('/kpi/int1', kpi_controller.KPI_int1);
 router.get('/kpi/int2', kpi_controller.KPI_int2);
 router.get('/kpi/int3', kpi_controller.KPI_int3);
+router.get('/dashboardData', admission_controller.dashboard_data);
+
 module.exports = router;

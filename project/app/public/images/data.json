@@ -1,0 +1,326 @@
+{
+  "baseScore": 1,
+  "data": [
+    {
+      "x": "gre",
+      "y": "gre",
+      "variance": 1
+    },
+    {
+      "x": "gre",
+      "y": "toefl",
+      "variance": 0.84
+    },
+    {
+      "x": "gre",
+      "y": "university",
+      "variance": 0.67
+    },
+    {
+      "x": "gre",
+      "y": "sop",
+      "variance": 0.61
+    },
+    {
+      "x": "gre",
+      "y": "lor",
+      "variance": 0.56
+    },
+    {
+      "x": "gre",
+      "y": "CGPA",
+      "variance": 0.83
+    },
+    {
+      "x": "gre",
+      "y": "research",
+      "variance": 0.58
+    },
+    {
+      "x": "gre",
+      "y": "Admit",
+      "variance": 0.8
+    },
+    	{
+      "x": "toefl",
+      "y": "gre",
+      "variance": 0.84
+    },
+    {
+      "x": "toefl",
+      "y": "toefl",
+      "variance": 1
+    },
+    {
+      "x": "toefl",
+      "y": "university",
+      "variance": 0.7
+    },
+    {
+      "x": "toefl",
+      "y": "sop",
+      "variance": 0.66
+    },
+	{
+      "x": "toefl",
+      "y": "lor",
+      "variance": 0.57
+    },
+    {
+      "x": "toefl",
+      "y": "CGPA",
+      "variance": 0.83
+    },
+    {
+      "x": "toefl",
+      "y": "research",
+      "variance": 0.49
+    },
+    {
+      "x": "toefl",
+      "y": "Admit",
+      "variance": 0.79
+    },
+    	{
+      "x": "university",
+      "y": "gre",
+      "variance": 0.67
+    },
+    {
+      "x": "university",
+      "y": "toefl",
+      "variance": 0.7
+    },
+    {
+      "x": "university",
+      "y": "university",
+      "variance": 1
+    },
+    {
+      "x": "university",
+      "y": "sop",
+      "variance": 0.73
+    },
+	{
+      "x": "university",
+      "y": "lor",
+      "variance": 0.66
+    },
+    {
+      "x": "university",
+      "y": "CGPA",
+      "variance": 0.75
+    },
+    {
+      "x": "university",
+      "y": "research",
+      "variance": 0.45
+    },
+    {
+      "x": "university",
+      "y": "Admit",
+      "variance": 0.71
+    },
+    	{
+      "x": "sop",
+      "y": "gre",
+      "variance": 0.61
+    },
+    {
+      "x": "sop",
+      "y": "toefl",
+      "variance": 0.66
+    },
+    {
+      "x": "sop",
+      "y": "university",
+      "variance": 0.73
+    },
+    {
+      "x": "sop",
+      "y": "sop",
+      "variance": 1
+    },
+	{
+      "x": "sop",
+      "y": "lor",
+      "variance": 0.73
+    },
+    {
+      "x": "sop",
+      "y": "CGPA",
+      "variance": 0.72
+    },
+    {
+      "x": "sop",
+      "y": "research",
+      "variance": 0.44
+    },
+    {
+      "x": "sop",
+      "y": "Admit",
+      "variance": 0.68
+    },
+    	{
+      "x": "lor",
+      "y": "gre",
+      "variance": 0.56
+    },
+    {
+      "x": "lor",
+      "y": "toefl",
+      "variance": 0.57
+    },
+    {
+      "x": "lor",
+      "y": "university",
+      "variance": 0.66
+    },
+    {
+      "x": "lor",
+      "y": "sop",
+      "variance": 0.73
+    },
+	{
+      "x": "lor",
+      "y": "lor",
+      "variance": 1
+    },
+    {
+      "x": "lor",
+      "y": "CGPA",
+      "variance": 0.67
+    },
+    {
+      "x": "lor",
+      "y": "research",
+      "variance": 0.4
+    },
+    {
+      "x": "lor",
+      "y": "Admit",
+      "variance": 0.67
+    },
+    	{
+      "x": "CGPA",
+      "y": "gre",
+      "variance": 0.83
+    },
+    {
+      "x": "CGPA",
+      "y": "toefl",
+      "variance": 0.83
+    },
+    {
+      "x": "CGPA",
+      "y": "university",
+      "variance": 0.75
+    },
+    {
+      "x": "CGPA",
+      "y": "sop",
+      "variance": 0.72
+    },
+	{
+      "x": "CGPA",
+      "y": "lor",
+      "variance": 0.67
+    },
+    {
+      "x": "CGPA",
+      "y": "CGPA",
+      "variance": 1
+    },
+    {
+      "x": "CGPA",
+      "y": "research",
+      "variance": 0.52
+    },
+    {
+      "x": "CGPA",
+      "y": "Admit",
+      "variance": 0.87
+    },
+    	{
+      "x": "research",
+      "y": "gre",
+      "variance": 0.58
+    },
+    {
+      "x": "research",
+      "y": "toefl",
+      "variance": 0.49
+    },
+    {
+      "x": "research",
+      "y": "university",
+      "variance": 0.45
+    },
+    {
+      "x": "research",
+      "y": "sop",
+      "variance": 0.44
+    },
+	{
+      "x": "research",
+      "y": "lor",
+      "variance": 0.4
+    },
+    {
+      "x": "research",
+      "y": "CGPA",
+      "variance": 0.52
+    },
+    {
+      "x": "research",
+      "y": "research",
+      "variance": 1
+    },
+    {
+      "x": "research",
+      "y": "Admit",
+      "variance": 0.55
+    },
+    	{
+      "x": "Admit",
+      "y": "gre",
+      "variance": 0.8
+    },
+    {
+      "x": "Admit",
+      "y": "toefl",
+      "variance": 0.79
+    },
+    {
+      "x": "Admit",
+      "y": "university",
+      "variance": 0.71
+    },
+    {
+      "x": "Admit",
+      "y": "sop",
+      "variance": 0.68
+    },
+	{
+      "x": "Admit",
+      "y": "lor",
+      "variance": 0.67
+    },
+    {
+      "x": "Admit",
+      "y": "CGPA",
+      "variance": 0.87
+    },
+    {
+      "x": "Admit",
+      "y": "research",
+      "variance": 0.55
+    },
+    {
+      "x": "Admit",
+      "y": "Admit",
+      "variance": 1
+    }
+    
+    ]
+}

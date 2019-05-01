@@ -1,0 +1,326 @@
+{
+  "baseTemperature": 1,
+  "monthlyVariance": [
+    {
+      "year": "gre",
+      "month": 1,
+      "variance": 1
+    },
+    {
+      "year": "gre",
+      "month": 2,
+      "variance": 0.84
+    },
+    {
+      "year": "gre",
+      "month": 3,
+      "variance": 0.67
+    },
+    {
+      "year": "gre",
+      "month": 4,
+      "variance": 0.61
+    },
+    {
+      "year": "gre",
+      "month": 5,
+      "variance": 0.56
+    },
+    {
+      "year": "gre",
+      "month": 6,
+      "variance": 0.83
+    },
+    {
+      "year": "gre",
+      "month": 7,
+      "variance": 0.58
+    },
+    {
+      "year": "gre",
+      "month": 8,
+      "variance": 0.8
+    },
+    	{
+      "year": "toefl",
+      "month": 1,
+      "variance": 0.84
+    },
+    {
+      "year": "toefl",
+      "month": 2,
+      "variance": 1
+    },
+    {
+      "year": "toefl",
+      "month": 3,
+      "variance": 0.7
+    },
+    {
+      "year": "toefl",
+      "month": 4,
+      "variance": 0.66
+    },
+	{
+      "year": "toefl",
+      "month": 5,
+      "variance": 0.57
+    },
+    {
+      "year": "toefl",
+      "month": 6,
+      "variance": 0.83
+    },
+    {
+      "year": "toefl",
+      "month": 7,
+      "variance": 0.49
+    },
+    {
+      "year": "toefl",
+      "month": 8,
+      "variance": 0.79
+    },
+    	{
+      "year": "university",
+      "month": 1,
+      "variance": 0.67
+    },
+    {
+      "year": "university",
+      "month": 2,
+      "variance": 0.7
+    },
+    {
+      "year": "university",
+      "month": 3,
+      "variance": 1
+    },
+    {
+      "year": "university",
+      "month": 4,
+      "variance": 0.73
+    },
+	{
+      "year": "university",
+      "month": 5,
+      "variance": 0.66
+    },
+    {
+      "year": "university",
+      "month": 6,
+      "variance": 0.75
+    },
+    {
+      "year": "university",
+      "month": 7,
+      "variance": 0.45
+    },
+    {
+      "year": "university",
+      "month": 8,
+      "variance": 0.71
+    },
+    	{
+      "year": "sop",
+      "month": 1,
+      "variance": 0.61
+    },
+    {
+      "year": "sop",
+      "month": 2,
+      "variance": 0.66
+    },
+    {
+      "year": "sop",
+      "month": 3,
+      "variance": 0.73
+    },
+    {
+      "year": "sop",
+      "month": 4,
+      "variance": 1
+    },
+	{
+      "year": "sop",
+      "month": 5,
+      "variance": 0.73
+    },
+    {
+      "year": "sop",
+      "month": 6,
+      "variance": 0.72
+    },
+    {
+      "year": "sop",
+      "month": 7,
+      "variance": 0.44
+    },
+    {
+      "year": "sop",
+      "month": 8,
+      "variance": 0.68
+    },
+    	{
+      "year": "lor",
+      "month": 1,
+      "variance": 0.56
+    },
+    {
+      "year": "lor",
+      "month": 2,
+      "variance": 0.57
+    },
+    {
+      "year": "lor",
+      "month": 3,
+      "variance": 0.66
+    },
+    {
+      "year": "lor",
+      "month": 4,
+      "variance": 0.73
+    },
+	{
+      "year": "lor",
+      "month": 5,
+      "variance": 1
+    },
+    {
+      "year": "lor",
+      "month": 6,
+      "variance": 0.67
+    },
+    {
+      "year": "lor",
+      "month": 7,
+      "variance": 0.4
+    },
+    {
+      "year": "lor",
+      "month": 8,
+      "variance": 0.67
+    },
+    	{
+      "year": "CGPA",
+      "month": 1,
+      "variance": 0.83
+    },
+    {
+      "year": "CGPA",
+      "month": 2,
+      "variance": 0.83
+    },
+    {
+      "year": "CGPA",
+      "month": 3,
+      "variance": 0.75
+    },
+    {
+      "year": "CGPA",
+      "month": 4,
+      "variance": 0.72
+    },
+	{
+      "year": "CGPA",
+      "month": 5,
+      "variance": 0.67
+    },
+    {
+      "year": "CGPA",
+      "month": 6,
+      "variance": 1
+    },
+    {
+      "year": "CGPA",
+      "month": 7,
+      "variance": 0.52
+    },
+    {
+      "year": "CGPA",
+      "month": 8,
+      "variance": 0.87
+    },
+    	{
+      "year": "research",
+      "month": 1,
+      "variance": 0.58
+    },
+    {
+      "year": "research",
+      "month": 2,
+      "variance": 0.49
+    },
+    {
+      "year": "research",
+      "month": 3,
+      "variance": 0.45
+    },
+    {
+      "year": "research",
+      "month": 4,
+      "variance": 0.44
+    },
+	{
+      "year": "research",
+      "month": 5,
+      "variance": 0.4
+    },
+    {
+      "year": "research",
+      "month": 6,
+      "variance": 0.52
+    },
+    {
+      "year": "research",
+      "month": 7,
+      "variance": 1
+    },
+    {
+      "year": "research",
+      "month": 8,
+      "variance": 0.55
+    },
+    	{
+      "year": "Admit",
+      "month": 1,
+      "variance": 0.8
+    },
+    {
+      "year": "Admit",
+      "month": 2,
+      "variance": 0.79
+    },
+    {
+      "year": "Admit",
+      "month": 3,
+      "variance": 0.71
+    },
+    {
+      "year": "Admit",
+      "month": 4,
+      "variance": 0.68
+    },
+	{
+      "year": "Admit",
+      "month": 5,
+      "variance": 0.67
+    },
+    {
+      "year": "Admit",
+      "month": 6,
+      "variance": 0.87
+    },
+    {
+      "year": "Admit",
+      "month": 7,
+      "variance": 0.55
+    },
+    {
+      "year": "Admit",
+      "month": 8,
+      "variance": 1
+    }
+    
+    ]
+}

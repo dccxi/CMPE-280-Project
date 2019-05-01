@@ -77,3 +77,65 @@ exports.admission_delete_post = function (req, res, next) {
         }
     })
 };
+let calcAverage = function(data){
+  var gre_sum = 0;
+  var gre_count = 0;
+  var toefl_sum = 0;
+  var toefl_count = 0;
+  data.forEach(element => {
+    gre_sum+= element.gre_score;
+    toefl_sum += element.toefl_score;
+
+    if(element.gre_score > 0)
+      gre_count++;
+    if(element.toefl_score > 0)
+      toefl_count++;
+  });
+  console.log('Averages are GRE: '+gre_sum/gre_count + ' toefl average: '+ toefl_sum/toefl_count);
+  return {'gre_average' : gre_sum/gre_count,
+            'toefl_average' : toefl_sum/toefl_count} ;
+}
+
+
+let frequencyTable = function(data, exam){
+  freq_table = {};
+  data.forEach(element =>{
+    if(exam == 'gre')
+    {
+    if(freq_table[element.gre_score] != null)
+    {
+      freq_table[element.gre_score]+=1;
+    }
+    else{
+      freq_table[element.gre_score] = 1;
+    }
+  }
+  if(exam == 'toefl'){
+    if(freq_table[element.toefl_score] != null)
+      freq_table[element.toefl_score]+=1;
+    else
+      freq_table[element.toefl_score] = 1;
+  }
+  });
+  return freq_table;
+}
+
+exports.dashboard_data = function( req, res){
+  Admission.find().exec(function(err, data){
+    if (err) { return next(err); }
+          else {
+            // Success, return a list of admission objects
+            //console.log(data);
+            var avg_data = calcAverage(data);
+            var gre_frequency_table = frequencyTable(data, 'gre');
+            var toefl_frequqency_table = frequencyTable(data, 'toefl');
+
+            res.render('dashboardData', 
+            {'gre_avg' : parseInt(avg_data.gre_average), 
+              'toefl_avg' : parseInt(avg_data.toefl_average),
+              'gre_dist' : JSON.stringify(gre_frequency_table),
+              'toefl_dist' : JSON.stringify(toefl_frequqency_table)
+            });
+          }
+  })
+};
