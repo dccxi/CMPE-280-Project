@@ -33,6 +33,10 @@ function drawLine() {
           vAxis: {
             title: 'Percentage'
           },
+          chartArea: {
+            // leave room for y-axis labels
+            width: '94%'
+          },
           height: height,
           pointSize: 10,
           series: {
@@ -69,11 +73,10 @@ function drawPie1() {
 
         var options = {
           title: 'Admission distribution by College and School',
-          width: '100%',
           height: height,
           colors:['#2D63D0','#1CB03F','#B07A1C','#CAC6BF'],
           legend: {maxLines: 3, textStyle: {fontSize: 10}},
-          chartArea: {width: '100%', height: '79%',top: 50}
+          chartArea: {width: '100%', height: '100%',top: 50}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart2'));
@@ -104,11 +107,10 @@ function drawPie2() {
 
         var options = {
           title: 'Admission distribution by School type',
-          width: '100%',
           height: height,
           colors:['#8E2814','#0D6145','#8137B2','#CAC6BF'],
           legend: {maxLines: 3, textStyle: {fontSize: 10}},
-          chartArea: {width: '100%', height: '79%', top: 50}
+          chartArea: {width: '100%', height: '100%', top: 50}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart3'));
