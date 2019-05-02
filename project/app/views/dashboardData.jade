@@ -2,7 +2,7 @@ doctype html
 html
   head
     title Dashboard
-    meta(charset='utf-8')
+    meta(charset='utf-8', ,='', http-equiv='encoding')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
@@ -11,159 +11,86 @@ html
   body
     nav.navbar.navbar-inverse.visible-xs
       .container-fluid
-        //- .navbar-header
-        //-   button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
-        //-     span.icon-bar
-        //-     span.icon-bar
-        //-     span.icon-bar
-        //-   a.navbar-brand(href='#') College Predictor
-        //- #myNavbar.collapse.navbar-collapse
-        //-   ul.nav.navbar-nav
-        //-     li.active
-        //-       a(href='#') Dashboard
-        //-     li
-        //-       a(href='#') Homepage
-        //-     li
-        //-       a(href='#') Predictor
-        //-     li
-        //-       a(href='#') About
     .container-fluid
-
-        //- .col-sm-3.sidenav.hidden-xs
-        //-   h2 College Predictor
-        //-   ul.nav.nav-pills.nav-stacked
-        //-     li.active
-        //-       a(href='#') Dashboard
-        //-     li
-        //-       a(href='#') Homepage
-        //-     li
-        //-       a(href='#') Predictor
-        //-     li
-        //-       a(href='#') About
-        .row.content
+      .row.content
         .col-sm-6
-              .well
-                // <h4>Distribution Curve for GRE</h4>
-                canvas#gre_dist
-            .col-sm-6
-              .well
-                //
-                  <h4>Distribution Curve for Tofel</h4>
-                  <p>Display the the distribution curve and also mark the cuttoffs department wise</p>
-                canvas#toefl_dist
-        .row
-        .col-sm-12
           .well
-            h4 Daily Submissions
-            p The graph
-            canvas#dailyTrend
-          .row
-            h4
-              p Cuttoff Scores and Average
-            .col-sm-3
-              .well
-                h4 Gre Cutoff
-                table.table.table-hover
-                  tbody
-                    tr
-                      td Quant
-                      td 159
-                    tr
-                      td Verbal
-                      td 157
-                    tr
-                      td AWA
-                      td 4
-                    tr
-                      td Total
-                      td 320
-                //
-                  <p>Quant 159</p>
-                  <p>Verbal 157</p>
-                  <p>AWA 4</p>
-            #toefl_table.col-sm-3
-              .well
-                h4 Toefl/Ielts
-                table.table.table-hover
-                  tbody
-                    tr
-                      td Listening
-                      td 39
-                    tr
-                      td Writing
-                      td 40
-                    tr
-                      td Analytical
-                      td 40
-                    tr
-                      td Speaking
-                      td 37
-                //
-                  <p>Listening 39</p>
-                  <p>Writing 40</p>
-                  <p>Analytical 40</p>
-                  <p>Speaking 37</p>
-            .col-sm-6
-              .well
-                canvas#seatsFilled
-          //
-            <div class="row" id="row3">
-            <div class="col-sm-3">
-            <div class="well">
-            <h4>Gre</h4>
-            <p>Average 340</p>
-            </div>
-            </div>
-            <div class="col-sm-3">
-            <div class="well">
-            <h4>Toefl/Ielts</h4>
-            <p>Average 120</p>
-            </div>
-            </div>
-            <div class="col-sm-3">
-            <div class="well">
-            <h4>Analytical Writing</h4>
-            <p>Average 5</p>
-            </div>
-            </div>
-            <div class="col-sm-3">
-            <div class="well">
-            <h4>Total Seats</h4>
-            <p>500</p>
-            </div>
-            </div>
-            </div>
-          #row4.row
-
-          #row5.row
-            .col-sm-6
-              .well
-                h3 Radar Graph
-                .container
-                  select
-                    option(value='1') Student 1
-                    p
-                  select
-                    option(value='2') Student 2
-                canvas#compare_students
-            .col-sm-6
-              .well
-                h4 Average Scores
-                table.table.table-hover
-                  tbody
-                    tr
-                      td Gre
-                      td #{gre_avg}/340
-                    tr
-                      td Toefl
-                      td #{toefl_avg}/120
-                    tr
-                      td AWA
-                      td 4/5
-    #dashboard_data(style='display: none;')
+            canvas#gre_dist
+        .col-sm-6
+          .well
+            canvas#toefl_dist
+      .row
+        .col-sm-6
+          .well
+            h3 Heatmap / Correlation
+            #my_dataviz
+        .col-sm-6
+          .well(style='height: 550px')
+            canvas#seatsFilled(style='margin-top: 60px')
+      .row
+        h4
+          p Cuttoff Scores and Average
+        .col-sm-4
+          .well
+            h4 Gre Cutoff
+            table.table.table-hover
+              tbody
+                tr
+                  td Quant
+                  td 159
+                tr
+                  td Verbal
+                  td 157
+                tr
+                  td AWA
+                  td 4
+                tr
+                  td Total
+                  td 320
+        #toefl_table.col-sm-4
+          .well
+            h4 Toefl/Ielts
+            table.table.table-hover
+              tbody
+                tr
+                  td Listening
+                  td 39
+                tr
+                  td Writing
+                  td 40
+                tr
+                  td Analytical
+                  td 40
+                tr
+                  td Speaking
+                  td 37
+        .col-sm-4
+          .well
+            h4 Average Scores
+            table.table.table-hover
+              tbody
+                tr
+                  td Gre
+                  td #{gre_avg}/340
+                tr
+                  td Toefl
+                  td #{toefl_avg}/120
+                tr
+                  td AWA
+                  td 4/5
+      #row4.row
+      #row5.row
+        .col-sm-6
+          .well
+            h3 Radar Graph
+            .container
+              select
+                option(value='1') Student 1
+              select
+                option(value='2') Student 2
+            canvas#compare_students
+    #dashboard_data(style='display: none')
       p jksdhfkjh
       input#gre_dist_data(type='text', name='median', value='#{gre_dist}')
-      input#toefl_dist_data(type="text", value='#{toefl_dist}')
-
-
+      input#toefl_dist_data(type='text', value='#{toefl_dist}')
     script(src='./javascripts/loadDashboard.js')
