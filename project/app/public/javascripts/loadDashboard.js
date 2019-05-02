@@ -4,13 +4,13 @@ function createAlert(x){
 }
 
 console.log("loadDashboard.js loaded");
-let dailyTrend = document.getElementById('dailyTrend').getContext('2d');
+//let dailyTrend = document.getElementById('dailyTrend').getContext('2d');
 let seatsElement = document.getElementById('seatsFilled').getContext('2d');
 let greDistribution = document.getElementById('gre_dist').getContext('2d');
 let toeflDistribution = document.getElementById('toefl_dist').getContext('2d');
 let student_comparison = document.getElementById('compare_students').getContext('2d');
 document.getElementById('seatsFilled').height = 250;
-document.getElementById('dailyTrend').height = 75;
+//document.getElementById('dailyTrend').height = 75;
 Chart.defaults.global.defaultFontFamily='Helvetica';
 Chart.defaults.global.defaultFontSize=14;
 Chart.defaults.global.defaultFontColor='#777';
@@ -20,42 +20,42 @@ trend_data = [7,20,21,3];
 
 // console.log(document.getElementById('dashboard_data'));
 
-let trend = new Chart(dailyTrend ,{
-  type:'line', //bar, horizontal bar, pie, line, doughnut, radar, polar area
-  data:{
-    labels:trend_labels,
-    datasets:[{
-    label:'Submissions',
-    data:trend_data,
-    backgroundColor:'#f9cb8e',
-      borderWidth:3,
-      borderColor:'orange',
-      hoverBorderWidth:3,
-      hoverBorderColor:'#001'
-      //fill:false
-  }]
-  },
-  options:{
-    title:{
-      display:true,
-      text:'Daily Submission Trend',
-      fontSize:18
-    },
-    legend:{
-      dispaly:true,
-      position:'top'
-    },
-    layout:{
-      padding:{
+// let trend = new Chart(dailyTrend ,{
+//   type:'line', //bar, horizontal bar, pie, line, doughnut, radar, polar area
+//   data:{
+//     labels:trend_labels,
+//     datasets:[{
+//     label:'Submissions',
+//     data:trend_data,
+//     backgroundColor:'#f9cb8e',
+//       borderWidth:3,
+//       borderColor:'orange',
+//       hoverBorderWidth:3,
+//       hoverBorderColor:'#001'
+//       //fill:false
+//   }]
+//   },
+//   options:{
+//     title:{
+//       display:true,
+//       text:'Daily Submission Trend',
+//       fontSize:18
+//     },
+//     legend:{
+//       dispaly:true,
+//       position:'top'
+//     },
+//     layout:{
+//       padding:{
 
-      }
-    },
-    tooltips:{
-      enabled:true
-    }
-  }
+//       }
+//     },
+//     tooltips:{
+//       enabled:true
+//     }
+//   }
 
-});
+// });
 
 // let seatsFilled = new Chart(seatsElement,{
 //   type:'doughnut',
@@ -272,3 +272,57 @@ let student_radar_graph = new Chart(student_comparison,{
     }
   }
 });
+
+var margin = {top: 30, right: 30, bottom: 30, left: 60},
+  width = 450 - margin.left - margin.right,
+  height = 450 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+.append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+.append("g")
+  .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+
+// Labels of row and columns
+var myGroups = ["gre", "toefl", "university", "sop", "lor", "cgpa", "research", "admit"]
+var myVars = ["gre", "toefl", "university", "sop", "lor", "cgpa", "research", "admit"]
+
+// Build X scales and axis:
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .domain(myGroups)
+  .padding(0.01);
+svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x))
+
+// Build X scales and axis:
+var y = d3.scaleBand()
+  .range([ height, 0 ])
+  .domain(myVars)
+  .padding(0.01);
+svg.append("g")
+  .call(d3.axisLeft(y));
+
+// Build color scale
+var myColor = d3.scaleLinear()
+  .range(["white", "#01352a"])
+  .domain([1,100])
+
+//Read the data
+d3.csv("https://raw.githubusercontent.com/dccxi/CMPE-280-Project/maddy_sync_master/project/app/public/images/heatmap_data.csv", function(data) {
+
+  svg.selectAll()
+      .data(data, function(d) {return d.group+':'+d.variable;})
+      .enter()
+      .append("rect")
+      .attr("x", function(d) { return x(d.group) })
+      .attr("y", function(d) { return y(d.variable) })
+      .attr("width", x.bandwidth() )
+      .attr("height", y.bandwidth() )
+      .style("fill", function(d) { return myColor(d.value*100)} )
+
+})
